@@ -5,9 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{% block title %}Home{% endblock %}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='custom.css') }}">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="navbar">
           <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,12 +16,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
+                <img src="{{ url_for('static', filename='logo.png') }}"  id="logo" height="50x" width="50px"> 
+                <a class="navbar-brand" href="#">Diary.py</a>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">Your Entries</a>
+                  <a class="nav-link" aria-current="page" href="/">Your Entries</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/post">Make an Entry</a>
+                  <a class="nav-link" aria-current="page" href="/post">Make an Entry</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/logout">Log Out</a>
