@@ -1,3 +1,15 @@
 {% extends "base.html" %}
-{% block title %}Change{% endblock %}
-{% block content %}{% endblock %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h1 align="center">Entries</h1>
+    <ul class="list-group list-group-flush" id="entries">
+        {% for entry in user.entries %}
+        <li class="list-group-item">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ entry.date }}</div>
+                {{ entry.data }}
+              </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

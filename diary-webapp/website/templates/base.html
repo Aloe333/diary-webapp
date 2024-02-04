@@ -15,18 +15,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                  <a class="nav-link active" aria-current="page" href="/">Your Entries</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/post">Make an Entry</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Log Out</a>
+                </li>
+                {% else %}
                 <li class="nav-item">
                   <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/signup">Sign Up</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/logout">Log Out</a>
-                </li>
+                {% endif %}
               </ul>
             </div>
           </div>
