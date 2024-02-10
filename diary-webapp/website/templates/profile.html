@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Your Profile{% endblock %}
+{% block content %}
+<h1 align="center">{{user.username}}</h1>
+<br/>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Email Address: &nbsp; <span class="text-muted fw-semibold">{{user.email}}</span></li>
+    <li class="list-group-item">Number of Entries: &nbsp; <span class="text-muted fw-semibold">{{user.entries |length}}</span></li>
+    <li class="list-group-item">First Entry: &nbsp; <span class="text-muted fw-semibold">{{user.entries[0].date}}</span></li>
+    <li class="list-group-item">Last Entry: &nbsp; <span class="text-muted fw-semibold">{{user.entries[user.entries |length - 1].date}}</span></li>
+  </ul>
+{% endblock %}

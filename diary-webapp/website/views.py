@@ -27,5 +27,10 @@ def entry_post():
             flash('Your entry has been added!', category="success")
         
     return render_template('entrypost.html', user=current_user)
+
+@views.route('/profile', methods=['GET'])
+@login_required
+def profile():
+    return render_template('profile.html', user=current_user)
             
                 
